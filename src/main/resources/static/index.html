@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>BudzetApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo"><img src="img.png"></div>
+    <h2>BudzetApp</h2>
+    <div class="auth-buttons">
+        <a href="/login"><button>Zaloguj</button></a>
+        <a href="/logout"><button>Wyloguj</button></a>
+    </div>
+</header>
+
+<div class="container">
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="uzytkownicy.html">Użytkownicy</a></li>
+            <li><a href="kategorie.html">Kategorie</a></li>
+            <li><a href="dzial.html">Dział</a></li>
+            <li><a href="status.html">Status</a></li>
+            <li>
+                <a href="#">Przychody</a>
+                <ul class="submenu">
+                    <li><a href="tables/stale_przychody.html">Stałe</a></li>
+                    <li><a href="tables/jednorazowe_przychody.html">Jednorazowe</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Wydatki</a>
+                <ul class="submenu">
+                    <li><a href="tables/stale_wydatki.html">Stałe</a></li>
+                    <li><a href="tables/jednorazowe_wydatki.html">Jednorazowe</a></li>
+                </ul>
+
+            </li>
+            <li><a href="raporty.html">Raporty</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+        <div class="hero-image">
+            <img src="money.png" alt="Dashboard Preview">
+        </div>
+        <h2>Panel Zarządzania Budżetem</h2>
+        <div class="description">
+            <p>Witaj w systemie <strong>Zarządzanie Budżetem</strong>. Aplikacja umożliwia pełną kontrolę nad Twoimi finansami.</p>
+
+            <h3>Kluczowe funkcjonalności:</h3>
+            <ul>
+                <li><strong>Rejestracja operacji:</strong> Ewidencja stałych i jednorazowych wpływów oraz kosztów.</li>
+                <li><strong>Zarządzanie strukturą:</strong> Definiowanie własnych kategorii, działów i użytkowników systemu.</li>
+                <li><strong>Bezpieczeństwo:</strong> Dostęp do danych chroniony systemem logowania dla administratora.</li>
+                <li><strong>Analityka:</strong> Przegląd statusów płatności i generowanie raportów okresowych.</li>
+            </ul>
+
+            <p><em>Wybierz odpowiednią sekcję z menu po lewej stronie, aby przejść do zarządzania danymi.</em></p>
+        </div>
+    </main>
+
+</div>
+
+
+
+
+</body>
+</html>

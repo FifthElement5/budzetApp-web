@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Bilans Miesięczny</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .dashboard { display: flex; gap: 20px; margin-bottom: 30px; }
+        .stat-card { padding: 20px; border-radius: 10px; flex: 1; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .income-card { background-color: #e6ffed; border: 1px solid #b7eb8f; }
+        .expense-card { background-color: #fff1f0; border: 1px solid #ffa39e; }
+        .balance-card { background-color: #e6f7ff; border: 1px solid #91d5ff; }
+        .typ-przychod { color: green; }
+        .typ-wydatek { color: red; }
+        .status-pill { padding: 3px 10px; border-radius: 12px; font-size: 0.85em; background: #eee; }
+    </style>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo"><img src="img.png"></div>
+    <h2>BudzetApp</h2>
+    <div class="auth-buttons">
+        <a href="/logout"><button>Wyloguj</button></a>
+    </div>
+</header>
+
+<div class="container">
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="uzytkownicy.html">Użytkownicy</a></li>
+            <li><a href="kategorie.html">Kategorie</a></li>
+            <li><a href="dzial.html">Działy</a></li>
+            <li><a href="status.html">Status</a></li>
+            <li>
+                <a href="#">Przychody</a>
+                <ul class="submenu">
+                    <li><a href="stale_przychody.html">Stałe</a></li>
+                    <li><a href="jednorazowe_przychody.html">Jednorazowe</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Wydatki</a>
+                <ul class="submenu">
+                    <li><a href="stale_wydatki.html">Stałe</a></li>
+                    <li><a href="jednorazowe_wydatki.html">Jednorazowe</a></li>
+                </ul>
+            </li>
+            <li><a href="raporty.html">Raporty</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h2>Bilans Miesięczny</h2>
+
+        <div class="filters">
+            <input type="month" id="selectDate" value="2025-12">
+            <button onclick="pobierzBilans()">Generuj Raport</button>
+        </div>
+
+        <div style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+            <h4>Wyślij ten raport na e-mail:</h4>
+            <input type="email" id="emailOdbiorcy" placeholder="email" style="padding: 8px; width: 250px;">
+            <button onclick="wyslijRaport()" style="padding: 8px 15px; background-color: #28a745; color: white; border: none; cursor: pointer;">
+                Wyślij Raport
+            </button>
+        </div>
+
+        <div class="dashboard">
+            <div class="stat-card income-card">
+                <h4>Przychody (+)</h4>
+                <p id="sumIncomes" style="font-size: 1.5em; font-weight: bold;">0.00 zł</p>
+            </div>
+            <div class="stat-card expense-card">
+                <h4>Wydatki (-)</h4>
+                <p id="sumExpenses" style="font-size: 1.5em; font-weight: bold;">0.00 zł</p>
+            </div>
+            <div class="stat-card balance-card">
+                <h4>Zostanie w portfelu</h4>
+                <p id="finalBalance" style="font-size: 1.8em; font-weight: bold;">0.00 zł</p>
+            </div>
+        </div>
+
+        <div class="crud-table">
+            <table>
+                <thead>
+                <tr>
+                    <th>Typ</th>
+                    <th>Nazwa</th>
+                    <th>Kwota</th>
+                    <th>Termin</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody id="bilansTableBody"></tbody>
+            </table>
+        </div>
+
+
+
+        <div style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+            <h4>Wyślij przypomnienie na e-mail:</h4>
+            <input type="email" id="emailPrzypomnienie" placeholder="email" style="padding: 8px; width: 250px;">
+            <p>podaj email i wcisnij "wyslij przypomienie"</p>
+        </div>
+
+        <div class="harmonogram-sekcja">
+            <h3 class="harmonogram-title">📅 Harmonogram wydatków</h3>
+            <div id="listaHarmonogram">
+                <p class="empty-msg">Wybierz datę i wygeneruj raport...</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="raporty.js"></script>
+</body>
+</html>

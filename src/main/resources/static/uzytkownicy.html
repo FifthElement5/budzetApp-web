@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Użytkownicy</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+
+
+<header class="topbar">
+    <div class="logo"><img src="img.png"></div>
+    <h2>BudzetApp</h2>
+    <div class="auth-buttons">
+        <a href="/logout"><button>Wyloguj</button></a>
+    </div>
+
+</header>
+
+<div class="container">
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="uzytkownicy.html">Użytkownicy</a></li>
+            <li><a href="kategorie.html">Kategorie</a></li>
+            <li><a href="dzial.html">Działy</a></li>
+            <li><a href="status.html">Status</a></li>
+            <li>
+                <a href="#">Przychody</a>
+                <ul class="submenu">
+                    <li><a href="stale_przychody.html">Stałe</a></li>
+                    <li><a href="jednorazowe_przychody.html">Jednorazowe</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Wydatki</a>
+                <ul class="submenu">
+                    <li><a href="stale_wydatki.html">Stałe</a></li>
+                    <li><a href="jednorazowe_wydatki.html">Jednorazowe</a></li>
+                </ul>
+            </li>
+            <li><a href="raporty.html">Raporty</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h2>Użytkownicy</h2>
+
+        <h3>Dodaj</h3>
+        <form id="addUserForm">
+            <input type="text" id="imie" placeholder="Imię" required>
+            <input type="text" id="nazwisko" placeholder="Nazwisko" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <button type="submit">Dodaj</button>
+        </form>
+        <h3>Wyszukaj</h3>
+        <form id="searchForm">
+            <input type="text" id="searchNazwisko" placeholder="Nazwisko">
+            <button type="submit">Szukaj</button>
+        </form>
+
+
+        <div class="crud-section">
+
+            <!-- LEWA STRONA: TABELA -->
+            <div class="crud-table">
+                <h3>Lista</h3>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Imię</th>
+                        <th>Nazwisko</th>
+                        <th>Email</th>
+                        <th>Akcje</th>
+                    </tr>
+                    </thead>
+                    <tbody id="userList"></tbody>
+                </table>
+
+                <div id="pagination">
+                    <button id="prevPage">Poprzednia</button>
+                    <span id="pageInfo">Strona 1</span>
+                    <button id="nextPage">Następna</button>
+                </div>
+            </div>
+
+
+            <!-- PRAWA STRONA: FORMULARZ EDYCJI -->
+            <div id="editBox" class="edit-box">
+                <h3>Edytuj użytkownika</h3>
+                <form id="editUserForm">
+                    <input type="hidden" id="editId">
+
+                    <input id="editImie" placeholder="Imię" required>
+                    <input id="editNazwisko" placeholder="Nazwisko" required>
+                    <input id="editEmail" placeholder="Email" required>
+
+                    <button type="submit">Zapisz</button>
+                    <button type="button" id="cancelEdit">Anuluj</button>
+                </form>
+            </div>
+
+        </div>
+
+
+        <div id="space">
+        </div>
+    </main>
+
+</div>
+
+<script src="uzytkownicy.js"></script>
+</body>
+</html>

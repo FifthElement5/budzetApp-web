@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Jednorazowe Wydatki</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="logo"><img src="img.png"></div>
+    <h2>BudzetApp</h2>
+    <div class="auth-buttons">
+        <a href="/logout"><button>Wyloguj</button></a>
+    </div>
+</header>
+
+<div class="container">
+    <nav class="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="uzytkownicy.html">Użytkownicy</a></li>
+            <li><a href="kategorie.html">Kategorie</a></li>
+            <li><a href="dzial.html">Działy</a></li>
+            <li><a href="status.html">Status</a></li>
+            <li>
+                <a href="#">Przychody</a>
+                <ul class="submenu">
+                    <li><a href="stale_przychody.html">Stałe</a></li>
+                    <li><a href="jednorazowe_przychody.html">Jednorazowe</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Wydatki</a>
+                <ul class="submenu">
+                    <li><a href="stale_wydatki.html">Stałe</a></li>
+                    <li><a href="jednorazowe_wydatki.html">Jednorazowe</a></li>
+                </ul>
+            </li>
+            <li><a href="raporty.html">Raporty</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h2>Jednorazowe Wydatki</h2>
+
+        <h3>Dodaj Wydatek</h3>
+        <form id="addJWydatkiForm">
+            <input type="number" id="idUzytkownika" placeholder="ID Użytkownika" required>
+            <input type="number" id="idKategorii" placeholder="ID Kategorii" required>
+            <input type="number" id="idDzial" placeholder="ID Działu" required>
+            <input type="text" id="nazwa" placeholder="Nazwa" required>
+            <input type="number" step="0.01" id="kwota" placeholder="Kwota" required>
+            <input type="date" id="termin" required>
+            <input type="date" id="dataZaplaty">
+            <input type="number" id="idStatus" placeholder="ID Statusu" required>
+            <button type="submit">Dodaj</button>
+        </form>
+
+        <h3>Wyszukaj</h3>
+        <form id="searchForm">
+            <input type="text" id="searchNazwa" placeholder="Nazwa wydatku">
+            <button type="submit">Szukaj</button>
+        </form>
+
+        <div class="crud-section">
+            <div class="crud-table">
+                <h3>Lista</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nazwa</th>
+                        <th>Kwota</th>
+                        <th>Termin</th>
+                        <th>Data zapłaty</th>
+                        <th>Akcje</th>
+                    </tr>
+                    </thead>
+                    <tbody id="jWydatkiList"></tbody>
+                </table>
+                <div id="pagination">
+                    <button id="prevPage">Poprzednia</button>
+                    <span id="pageInfo">Strona 1</span>
+                    <button id="nextPage">Następna</button>
+                </div>
+            </div>
+
+            <div id="editBox" class="edit-box">
+                <h3>Edytuj wydatek</h3>
+                <form id="editJWydatkiForm">
+                    <input type="hidden" id="editId">
+                    <input type="number" id="editIdUzytkownika" required>
+                    <input type="text" id="editNazwa" required>
+                    <input type="number" step="0.01" id="editKwota" required>
+                    <input type="date" id="editTermin" required>
+                    <input type="date" id="editDataZaplaty">
+                    <input type="number" id="editIdStatus" required>
+                    <button type="submit">Zapisz</button>
+                    <button type="button" id="cancelEdit">Anuluj</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="jednorazowe_wydatki.js"></script>
+</body>
+</html>
